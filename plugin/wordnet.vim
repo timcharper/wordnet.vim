@@ -1,9 +1,21 @@
 " Wordnet
+" By Tim Harper
+" http://tim.theenchanter.com/
+"
+" Instructions:
+" 1) Configure your wordnet path, if it's in a non-standard path (in your
+" vimrc)
+" let g:wordnet_path = "/usr/local/WordNet-3.0/bin/"
+"
+" 2) highlight or put your cursor over a word, and:
+" <Leader>wnd - Define the word
+" <Leader>wnb - Launch the wordnet browser for the word.
+
 command! -nargs=+ Wordnet call WordNetOverviews("<args>")
 command! -nargs=+ Wn call WordNetOverviews("<args>")
 
-noremap  \wnd "wyiw:call WordNetOverviews(@w)<CR>
-noremap  \wnb "wyiw:call WordNetBrowse(@w)<CR>
+noremap  <Leader>wnd "wyiw:call WordNetOverviews(@w)<CR>
+noremap  <Leader>wnb "wyiw:call WordNetBrowse(@w)<CR>
 let s:wordnet_buffer_id = -1
 
 if !exists('g:wordnet_path')
