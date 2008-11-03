@@ -1,8 +1,12 @@
-" Wordnet
-" By Tim Harper
-" http://tim.theenchanter.com/
+" wordnet.vim
+" By Tim Harper (http://tim.theenchanter.com/)
 "
-" Instructions:
+" OVERVIEW:
+" Easily look up the definition of the word under your cursor via wordnet
+" (http://wordnet.princeton.edu/). Definition is shown in a new region, with
+" syntax highlighting for easier reading.
+"
+" INSTRUCTIONS:
 " 1) Configure your wordnet path, if it's in a non-standard path (in your
 " vimrc)
 " let g:wordnet_path = "/usr/local/WordNet-3.0/bin/"
