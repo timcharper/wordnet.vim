@@ -1,15 +1,20 @@
 " Wordnet
-command! -nargs=+ Wordnet call WordNetDefine("<args>")
-command! -nargs=+ Wn call WordNetDefine("<args>")
+command! -nargs=+ Wordnet call WordNetOverviews("<args>")
+command! -nargs=+ Wn call WordNetOverviews("<args>")
 
-noremap  \wnd "wyiw:call WordNetDefine(@w)<CR>
+noremap  \wnd "wyiw:call WordNetOverviews(@w)<CR>
+noremap  \wnb "wyiw:call WordNetBrowse(@w)<CR>
 let s:wordnet_buffer_id = -1
 
 if !exists('g:wordnet_path')
   let g:wordnet_path = ""
 endif
 
-function! WordNetDefine (word)
+function! WordNetBrowse (word)
+  call system(g:wordnet_path . "wnb " . a:word)
+endfunction
+
+function! WordNetOverviews (word)
   let definition = system(g:wordnet_path . "wn " . a:word . " -over")
   if definition == ""
     let definition = "Word not found: " . a:word
